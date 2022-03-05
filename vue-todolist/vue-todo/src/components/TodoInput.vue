@@ -15,6 +15,10 @@ export default {
   methods: {
     addTodo: function() {
       console.log(this.newTodoItem);
+      //저장하는 로직
+      //localStorage.setItem();
+      localStorage.setItem(this.newTodoItem, this.newTodoItem);
+      this.newTodoItem = "";
     }
   }
 };
