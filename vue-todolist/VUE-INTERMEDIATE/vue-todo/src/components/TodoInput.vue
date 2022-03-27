@@ -16,8 +16,12 @@ export default {
   },
   methods: {
     addTodo: function() {
-      localStorage.setItem(this.newTodoItem, this.newTodoItem);
-      this.clearInput();
+      if (this.newTodoItem !== ''){
+        let obj = {completed : false, item: this.newTodoItem};
+        localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
+        // 여기서 JSON.stringify 를 해주는 이유는 그냥 obj만 넣을 경우 로컬 스토리지에서는 확인이 안됨. 
+        this.clearInput();
+      }
     },
     clearInput: function() {
       this.newTodoItem = '';
