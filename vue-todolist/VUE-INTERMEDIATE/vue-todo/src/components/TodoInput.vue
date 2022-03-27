@@ -20,8 +20,8 @@ export default {
       this.clearInput();
     },
     clearInput: function() {
-      this.newTodoItem = "";
-    }
+      this.newTodoItem = '';
+    },
   }
 };
 </script>
