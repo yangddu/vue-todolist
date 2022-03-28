@@ -15,11 +15,7 @@
 
 <script>
 export default {
-  data: function() {
-    return {
-      todoItems: []
-    }
-  },
+  props: ['propsData'],
   methods: {
     removeTodo: function(todoItem, index) {
       console.log(todoItem, index);
@@ -31,15 +27,6 @@ export default {
       //로컬 스토리지의 데이터를 갱신
       localStorage.removeItem(todoItem.item);
       localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
-    }
-  },
-  created: function() { //인스턴스가 생성되자마자 호출되는 라이프사이클 훅 
-    if(localStorage.length > 0) {
-      for(let i = 0; i < localStorage.length; i ++){
-        if(localStorage.key(i) !== 'loglevel:webpack-dev-server') {
-          this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-        }
-      }
     }
   },
 };
