@@ -6,7 +6,11 @@
     </span>
 
     <Modal v-if="showModal" @close="showModal = false">
-      <h3 slot="header">custom header</h3>
+      <h3 slot="header">경고!
+        <i class="closeModalBtn fa-solid fa-xmark" @click="showModal = false"></i>
+      </h3>
+      <span slot="body">할 일을 입력해주세요.</span>
+      <span slot="footer">copy right</span>
     </Modal>
   </div>
 </template>
@@ -27,7 +31,7 @@ export default {
         this.$emit('addTodoItem', this.newTodoItem);
         this.clearInput();
       } else {
-        alert('입력해주세요!');
+        this.showModal = !this.showModal;
       }
     },
     clearInput: function() {
@@ -67,5 +71,11 @@ input:focus {
 
 .addBtn {
   color: #fff;
+}
+
+.closeModalBtn {
+  color: #42b983;
+  float: right;
+  margin-top: -15px;
 }
 </style>
