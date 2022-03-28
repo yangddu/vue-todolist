@@ -2,7 +2,7 @@
   <div id="app">
     <TodoHeader></TodoHeader>
     <TodoInput v-on:addTodoItem ="addOneItem"></TodoInput>
-    <TodoList v-bind:todoItems="todoItems" v-on:removeItem="removeOneItem"></TodoList>
+    <TodoList v-bind:todoItems="todoItems" v-on:removeItem="removeOneItem" v-on:toggleItem="toggleOneItem"></TodoList>
     <TodoFooter></TodoFooter>
   </div>
 </template>
@@ -26,8 +26,16 @@ export default {
       this.todoItems.push(obj);
     },
     removeOneItem: function(todoItem, index) {
+      todoItem.completed = !todoItem.completed;
+
       localStorage.removeItem(todoItem);
       this.todoItems.splice(index, 1); 
+    },
+    toggleOneItem: function(todoItem, index) {
+      this.todoItems[index].completed = !this.todoItems[index].completed;
+      //로컬 스토리지의 데이터를 갱신
+      localStorage.removeItem(todoItem.item);
+      localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
     }
   },
   created: function() { //인스턴스가 생성되자마자 호출되는 라이프사이클 훅 
