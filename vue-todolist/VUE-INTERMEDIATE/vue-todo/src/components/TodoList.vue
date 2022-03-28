@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  props: ['propsData'],
+  props: ['todoItems'],
   methods: {
     removeTodo: function(todoItem, index) {
       console.log(todoItem, index);
