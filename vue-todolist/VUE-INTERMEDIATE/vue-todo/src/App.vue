@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <TodoHeader></TodoHeader>
-    <TodoInput v-on:addTodoItem = "addOneItem"></TodoInput>
-    <TodoList v-bind:todoItems="todoItems"></TodoList>
+    <TodoInput v-on:addTodoItem ="addOneItem"></TodoInput>
+    <TodoList v-bind:todoItems="todoItems" v-on:removeItem="removeOneItem"></TodoList>
     <TodoFooter></TodoFooter>
   </div>
 </template>
@@ -21,11 +21,14 @@ export default {
   },
   methods: {
     addOneItem: function(todoItem) {
-        let obj = {completed : false, item: todoItem};
-        localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
-        // 여기서 JSON.stringify 를 해주는 이유는 그냥 obj만 넣을 경우 로컬 스토리지에서는 확인이 안됨. 
-        this.todoItems.push(obj);
+      let obj = { completed: false, item: todoItem };
+      localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
+      this.todoItems.push(obj);
     },
+    removeOneItem: function(todoItem, index) {
+      localStorage.removeItem(todoItem);
+      this.todoItems.splice(index, 1); 
+    }
   },
   created: function() { //인스턴스가 생성되자마자 호출되는 라이프사이클 훅 
     if(localStorage.length > 0) {
