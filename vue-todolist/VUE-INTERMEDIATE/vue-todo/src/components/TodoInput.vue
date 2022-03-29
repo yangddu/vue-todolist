@@ -39,7 +39,7 @@ export default {
     },
   },
   components: {
-    Modal: Modal,
+    Modal,
   },
 };
 </script>
