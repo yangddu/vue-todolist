@@ -4,6 +4,10 @@
     <TodoInput v-on:addTodoItem ="addOneItem"></TodoInput>
     <TodoList v-bind:todoItems="todoItems" v-on:removeItem="removeOneItem" v-on:toggleItem="toggleOneItem"></TodoList>
     <TodoFooter v-on:clearAll="clearAllItems"></TodoFooter>
+    
+    <br />
+    <p>{{ this.$store.getters.getNumber }}</p>
+    <p>{{ this.$store.getters.doubleNumber }}</p>
   </div>
 </template>
 
@@ -42,15 +46,15 @@ export default {
       this.todoItems = [];
     }
   },
-  created() { //인스턴스가 생성되자마자 호출되는 라이프사이클 훅 
-    if(localStorage.length > 0) {
-      for(let i = 0; i < localStorage.length; i ++){
-        if(localStorage.key(i) !== 'loglevel:webpack-dev-server') {
-          this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-        }
-      }
-    }
-  },
+  // created() { //인스턴스가 생성되자마자 호출되는 라이프사이클 훅 
+  //   if(localStorage.length > 0) {
+  //     for(let i = 0; i < localStorage.length; i ++){
+  //       if(localStorage.key(i) !== 'loglevel:webpack-dev-server') {
+  //         this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+  //       }
+  //     }
+  //   }
+  // },
   components: {
     //컴포넌트 태그명 : 컴포넌트 내용
     TodoHeader,
