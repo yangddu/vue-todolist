@@ -8,10 +8,7 @@
     v-bind:todoItems="todoItems"
      >
      </TodoList>
-    <TodoFooter 
-    v-on:clearAll="clearAllItems"
-    >
-    </TodoFooter>
+    <TodoFooter></TodoFooter>
   </div>
 </template>
 
@@ -22,12 +19,12 @@ import TodoList from "./components/TodoList.vue";
 import TodoFooter from "./components/TodoFooter.vue";
 
 export default {
-  data() {
-    return {
-      todoItems: [],
-    }
-  },
-  methods: {
+    // data() {
+    //   return {
+    //     todoItems: [],
+    //   }
+    // },
+    // methods: {
     // mutations 
     // addOneItem(todoItem) {
     //   const obj = { completed: false, item: todoItem };
@@ -50,7 +47,7 @@ export default {
     //   localStorage.clear();
     //   this.todoItems = [];
     // }
-  },
+  // },
   // created() { //인스턴스가 생성되자마자 호출되는 라이프사이클 훅 
   //   if(localStorage.length > 0) {
   //     for(let i = 0; i < localStorage.length; i ++){
