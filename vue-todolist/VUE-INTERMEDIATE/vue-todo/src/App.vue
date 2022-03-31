@@ -1,11 +1,11 @@
 <template>
   <div id="app">
     <TodoHeader></TodoHeader>
-    <TodoInput></TodoInput>
+    <TodoInput
+    v-on:addTodoItem="addOneItem" 
+    ></TodoInput>
     <TodoList 
     v-bind:todoItems="todoItems"
-    v-on:removeItem="removeOneItem"
-    v-on:toggleItem="toggleOneItem"
      >
      </TodoList>
     <TodoFooter 
