@@ -25,7 +25,6 @@ export default {
     //   }
     // },
     // methods: {
-    // mutations 
     // addOneItem(todoItem) {
     //   const obj = { completed: false, item: todoItem };
     //   localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
@@ -48,7 +47,7 @@ export default {
     //   this.todoItems = [];
     // }
   // },
-  // created() { //인스턴스가 생성되자마자 호출되는 라이프사이클 훅 
+  // created() { 
   //   if(localStorage.length > 0) {
   //     for(let i = 0; i < localStorage.length; i ++){
   //       if(localStorage.key(i) !== 'loglevel:webpack-dev-server') {
