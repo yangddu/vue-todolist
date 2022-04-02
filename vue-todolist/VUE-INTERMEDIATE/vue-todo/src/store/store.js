@@ -14,7 +14,6 @@ const storage = {
             }
         }
         return arr;
-        //로컬 스토리지에서 전부 다 들고 와서 배열에 담아주고 반환해준다.
     },
 }
 
@@ -25,12 +24,9 @@ export const store = new Vuex.Store({
         storeNum: 10,
     },
     getters: {
-        getNumber(state) {
-            return state.num;
+        storedTodoItems(state) {
+            return state.todoItems;
         },
-        doubleNumber(state) {
-            return state.num * 2;
-        }
     },
     mutations: { //mutations에서 state로 접근하는 방법은 첫번째로 주어진 인자 state를 접근해서 안에 속성으로 접근
         addOneItem(state, todoItem) {
