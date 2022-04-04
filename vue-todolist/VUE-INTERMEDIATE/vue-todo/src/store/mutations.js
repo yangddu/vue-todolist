@@ -21,3 +21,5 @@ const clearAllItems = (state) => {
     localStorage.clear();
     state.todoItems = [];
 }
+
+export { addOneItem, removeOneItem, toggleOneItem, clearAllItems } 
